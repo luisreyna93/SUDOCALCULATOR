@@ -1,0 +1,102 @@
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			<title>Twitter</title>
+			<meta charset="UTF-8">
+			<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+          
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+      <style>
+      .height{
+      	height: 100px
+      }
+      .height:hover { 
+		    background-color: gray !important;
+		}
+      </style>
+    </head>
+
+    <body>
+    	<div class="row" style="height: 100px">
+			<div class="col m12 white left">
+				
+<input type="text" id="result" Size="16">
+			</div>
+		</div>
+		<div class="row" style="height: 150px" id="calc">
+			<div class="col m3 blue center height"> 7 
+			</div>
+			<div class="col m3 blue center height"> 8
+			</div>
+			<div class="col m3 blue center height"> 9
+			</div>
+			<div class="col m3 blue center height"> Del
+			</div>
+
+			<div class="col m3 blue center height"> 4
+			</div>
+			<div class="col m3 blue center height"> 5
+			</div>
+			<div class="col m3 blue center height"> 6
+			</div>
+			<div class="col m3 blue center height"> /
+			</div>
+
+			<div class="col m3 blue center height"> 1 
+			</div>
+			<div class="col m3 blue center height"> 2
+			</div>
+			<div class="col m3 blue center height"> 3
+			</div>
+			<div class="col m3 blue center height"> *
+			</div>
+
+			<div class="col m3 blue center height"> . 
+			</div>
+			<div class="col m3 blue center height"> 0
+			</div>
+			<div class="col m3 blue center height"> =
+			</div>
+			<div class="col m3 blue center height"> +
+			</div>
+			<div class="col m3 blue center height offset-m6"> c
+			</div>
+			<div class="col m3 blue center height"> -
+			</div>
+		</div>
+    </body>
+    <script type="text/javascript">
+    var result=0;
+    function clickDiv(x){
+    	var value=x.currentTarget.outerText;
+    	if(isNaN(value)){}
+    }
+	jQuery(function($){
+		$('#calc').children().each(function(entry){
+			var div= $('#calc').children()[entry];
+			$( div ).click(function(x) {
+
+    			var value=x.currentTarget.outerText;
+				if(value=='Del')
+					$('#result').val($('#result').val().slice(0,-1));
+				else if (value=='=')
+					$('#result').val(eval($('#result').val()));
+				else if (value=='c')
+					$('#result').val("");
+				else
+					$('#result').val($('#result').val()+value);
+			});
+
+		});
+	});
+</script>
+  </html>
